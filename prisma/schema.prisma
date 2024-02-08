@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Colors {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  color     String
+  updatedAt DateTime @updatedAt
+}
+
+model Text {
+  id            String   @id @default(uuid())
+  name          String   @unique
+  color         String
+  fontSize      String
+  fontWeight    String
+  letterSpace   String
+  textTransform String  
+  updatedAt     DateTime @updatedAt
+}
+
+model Inputs {
+  id              String   @id @default(uuid())
+  name            String   @unique
+  color           String
+  border          String
+  minWidth        String
+  minHeight       String
+  borderRadius    String
+  backgroundColor String
+  updatedAt       DateTime @updatedAt
+}
+
+model Buttons {
+  id              String   @id @default(uuid())
+  name            String   @unique
+  hover           String
+  color           String
+  border          String
+  minWidth        String
+  minHeight       String
+  borderRadius    String
+  backgroundColor String
+  updatedAt       DateTime @updatedAt
+}
